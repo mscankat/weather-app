@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-function Input({ setCardVisible, setWeather, setIcon }) {
+function Input({ setCardVisible, setWeather, setIcon, setFound }) {
   const [location, setLocation] = useState("");
+
   function setIconPath(code, isday) {
     switch (String(code)) {
       case "1000":
@@ -66,15 +67,25 @@ function Input({ setCardVisible, setWeather, setIcon }) {
     const api = "13f2370015ba4cc49fa193438232704";
     const url = `http://api.weatherapi.com/v1/current.json?key=${api}&q=${location}&aqi=yes`;
     fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setWeather(data);
-        setCardVisible(true);
-        document.querySelector(".main").style.height = "400px";
-        document.querySelector(".main").style.width = "570px";
-        setIconPath(data.current.condition.code, data.current.is_day);
+      .then((response) => {
+        if (!response.ok) {
+          setFound(false);
+          document.querySelector(".main").style.height = "500px";
+          document.querySelector(".main").style.width = "400px";
+          setCardVisible(false);
+        } else {
+          response.json().then((data) => {
+            setFound(true);
+            console.log(data);
+            setWeather(data);
+            setCardVisible(true);
+            document.querySelector(".main").style.height = "400px";
+            document.querySelector(".main").style.width = "570px";
+            setIconPath(data.current.condition.code, data.current.is_day);
+          });
+        }
       })
+
       .catch((error) => console.log(error));
   }
   return (

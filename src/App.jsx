@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import Card from "./Card";
+import NotFound from "./NotFound";
 function App() {
+  const [found, setFound] = useState(true);
   const [cardVisible, setCardVisible] = useState(false);
   const [icon, setIcon] = useState("");
   const [weather, setWeather] = useState({
@@ -13,9 +15,7 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setWeather(data);
-        console.log(weather);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -27,7 +27,9 @@ function App() {
         setCardVisible={setCardVisible}
         setWeather={setWeather}
         setIcon={setIcon}
+        setFound={setFound}
       />
+      <NotFound found={found} />
       <Card cardVisible={cardVisible} icon={icon} weather={weather} />
     </div>
   );

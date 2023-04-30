@@ -114,10 +114,26 @@ body {
   display: none;
 }
 
+.notfound {
+  display: none;
+}
+.notfound.visible {
+  display: block;
+}
+
 form:focus-within .card {
   display: block;
 }
 
 .card.visible {
   display: block;
+}
+
+.notfoundpic {
+  width: 400px;
+  border-radius: 30px;
+}
+h1 {
+  text-align: center;
+  font-size: 24px;
 }
