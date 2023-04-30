@@ -70,10 +70,22 @@ body {
   font-weight: 300;
 }
 
-.celsius {
-  font-size: 50px;
-  font-weight: 400;
+.celsius,
+.fahrenheit,
+.seperator {
+  font-size: 30px;
+  font-weight: 300;
   margin-bottom: 80px;
+  color: grey;
+}
+.seperator {
+  font-weight: 400;
+  color: black;
+}
+
+.fahrenheit:hover,
+.celsius:hover {
+  cursor: pointer;
 }
 .status {
   width: 250px;
