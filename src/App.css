@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: lato, Arial, Helvetica, sans-serif;
+  background-color: rgb(26, 181, 237);
+}
+
+#root {
+  height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 40px;
+  width: 270px;
+  height: 40px;
+  transition: 0.3s ease;
+}
+
+.input {
+  border-style: solid;
+  border-color: #f8b62d;
+  border-radius: 30px;
+  text-indent: 20px;
+  height: 40px;
+  width: 270px;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.block {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  gap: 10px;
+  font-size: 20px;
+  align-items: center;
+  height: 115px;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  margin-left: 27px;
+}
+
+.temperature {
+  font-size: 170px;
+  font-weight: 300;
+}
+
+.celsius {
+  font-size: 50px;
+  font-weight: 400;
+  margin-bottom: 80px;
+}
+.status {
+  width: 250px;
+}
+
+.wind {
+  width: 47px;
+  margin-top: 12px;
+}
+
+.precipitation {
+  width: 80px;
+}
+
+.humidity {
+  width: 42px;
+  margin-top: 15px;
+}
+
+.fadeIn {
+  animation: 0.5s fadeIn forwards;
+  animation-delay: 0.5s;
+}
+
+.card {
+  display: none;
+}
+
+form:focus-within .card {
+  display: block;
+}
+
+.card.visible {
+  display: block;
+}
